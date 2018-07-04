@@ -1,0 +1,27 @@
+<div  ng-controller="PluginAdd">
+    <div class="box-">
+        <h1>
+            Yeni Eklenti
+        </h1>
+    </div>
+    
+    <div class="box-">
+        
+        <div class="file-upload" ng-click="upload($event)">
+        
+            <span ng-if="file == null">Eklenti dosyanızı buraya sürükleyin.</span>
+            <span ng-if="file != null"><i class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i>  <b>{{file}}</b>.</span>
+            
+            <input type="file" onchange="angular.element(this).scope().changed()">
+            
+        </div>
+        
+    </div>
+    
+    <div class="box- upload-status">
+        <ul>
+            <li ng-repeat="state in status"><i class="fa fa-check" aria-hidden="true"></i> {{state}}</li>
+        </ul>
+    </div>
+
+</div>

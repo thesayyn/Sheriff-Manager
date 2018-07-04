@@ -1,0 +1,24 @@
+<div ng-controller="Logs">
+    
+    
+    <div class="box-">
+        <h1>
+            Günlükler
+        </h1>
+    </div>
+
+    <div class="clear" style="height: 10px;"></div>
+
+    <div class="box-100">
+        
+        <div ng-repeat="log in logs">
+            <h4>Günlük Adı : {{log.Name}}</h4><br>
+            <h4>Günlük Boyutu : {{log.Size}} bayt</h4>
+            <div class="clear" style="height: 10px;"></div>
+            <textarea rows="10" spellcheck="false">{{log.Content}}</textarea>
+           <div class="clear" style="height: 30px;"></div>
+        </div>
+
+    </div>
+
+</div>

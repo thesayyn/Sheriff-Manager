@@ -1,0 +1,40 @@
+<div ng-controller="Settings">
+    <div class="box-">
+        <h1>
+            Ayarlar
+        </h1>
+    </div>
+    
+    <div class="message info box-">
+      Uygulama :  <strong class="ng-binding">{{app.module}}</strong><br>
+      Sürüm :  <strong class="ng-binding">{{app.moduleVer}}</strong><br> 
+      Sunucu :  <strong class="ng-binding">{{app.moduleServer}}</strong> 
+    </div>
+
+    <div class="box-">
+        <div class="form label">
+            <ul>
+                <li>
+                    <label for="chartresfreshrate">Grafik Yenilenme Süresi (sn)</label>
+                    <div class="form-content">
+                        <input type="text" min="1" max="60" id="chartresfreshrate" value="localStorage.graphicRefreshRate" ng-model="localStorage.graphicRefreshRate">
+                        <p>
+                            Grafik yenileme yukarıda bellirtiginiz saniye sonra tekrar eder.
+                        </p>
+                    </div>
+                </li>
+
+  
+
+                <li class="submit">
+                    <button ng-click="reset()" class="btn">Tüm Tercihleri Sıfırla</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="clear" style="height: 10px;"></div>
+
+
+
+</div>

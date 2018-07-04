@@ -1,0 +1,47 @@
+<div ng-controller="ServiceView">
+    
+    <div class="box-">
+        <h1>
+            {{service.Description}}
+        </h1>
+    </div>
+    
+    <div class="box- container-100">
+        <h2>
+         ID : <strong>{{service.ID}}</strong>  
+        </h2>
+        <br>
+         <h2>
+         Tür : <strong>{{service.Class}}</strong>  
+        </h2>
+         <br>
+        <h2>
+         Mod :  <strong ng-show="service.Bind.length > 1">Proxy</strong>
+                <strong ng-show="service.Bind.length < 2"><i class="fa fa-server" aria-hidden="true"></i> Single</strong>
+        </h2>
+        <br>
+         <h2>
+         Durum : <strong ng-show="service.Status">Çalışıyor</strong>  
+                 <strong ng-show="!service.Status">Durduruldu</strong>  
+        </h2>
+        <br>
+         <h2>
+         İstemci Listesi
+        </h2>
+        <br>
+        <div>
+             <B>Bağlı istemci yok.</B>
+             <h2 ng-repeat="client in service.Clients">
+                {{client}}
+            </h2>
+        </div>
+    </div>
+    
+  
+    
+
+    <div class="clear" style="height: 10px;"></div>
+
+
+
+</div>

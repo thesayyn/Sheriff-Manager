@@ -1,0 +1,80 @@
+<ul>
+    <li data-controller="status" ng-click="changeController($event)">
+        <a>
+            <span class="fa fa-circle-o-notch"></span>
+            <span class="title">
+                Durum
+            </span>
+        </a>
+    </li>
+    <li>
+        <a>
+            <span class="fa fa-dot-circle-o"></span>
+            <span class="title">
+                Servisler
+            </span>
+        </a>
+        <ul class="sub-menu">
+            <li data-controller="services" ng-click="changeController($event)">
+                <a>
+                    Tüm Servisler
+                </a>
+            </li>
+            <li data-controller="newservice" ng-click="changeController($event)">
+                <a>
+                   Yeni Servis
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a>
+            <span class="fa fa-plug"></span>
+            <span class="title">
+                Eklentiler
+            </span>
+        </a>
+        <ul class="sub-menu">
+            <li data-controller="plugins" ng-click="changeController($event)">
+                <a>
+                   Yüklü Eklentiler
+                </a>
+            </li>
+            <li data-controller="pluginadd" ng-click="changeController($event)">
+                <a>
+                   Yeni Eklenti
+                </a>
+            </li>
+            <li data-controller="pluginsettings" ng-click="changeController($event)">
+                <a>
+                    Eklenti Ayarları
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li data-controller="logs" ng-click="changeController($event)">
+        <a>
+            <span class="fa fa-exclamation"></span>
+            <span class="title">
+                Günlükler
+            </span>
+        </a>
+    </li>
+    <li data-controller="settings" ng-click="changeController($event)">
+        <a>
+            <span class="fa fa-cog"></span>
+            <span class="title">
+                Ayarlar
+            </span>
+        </a>
+    </li>
+    <li class="line">
+        <span></span>
+    </li>
+</ul>
+<a href="#" class="collapse-menu">
+    <span class="fa fa-arrow-circle-left"></span>
+    <span class="title">
+        Gizle / Göster
+    </span>
+</a>

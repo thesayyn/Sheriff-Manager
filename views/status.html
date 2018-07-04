@@ -1,0 +1,60 @@
+<div class="controller" ng-controller="Status">
+    <div class="box-container" >
+        <div class="message info box-" ng-show="server != null">
+            Sunucu : <strong> {{server}}</strong><br>
+            Sürüm : <strong> {{version}}</strong><br>
+            Yayınlanma tarihi : <strong> {{buildtime}}</strong><br>
+        </div>
+     
+        <div class="message error box-" ng-show="error != null">
+            <strong>Hata : </strong> {{error.message}}
+        </div>
+       <div class="container"></div>
+    </div>
+
+    <div class="box-container container-40">
+        <div class="box" id="div-1">
+            <h3>
+               İşlemci Kullanımı
+            </h3>
+            <div class="box-content">
+                </canvas><canvas id="livecpu"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="box-container container-40">
+        <div class="box" id="div-2">
+            <h3>
+               Bellek Kullanımı
+            </h3>
+            <div class="box-content">
+                <canvas id="livememory"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="box-container container-20">
+        <div class="box" id="div-3">
+            <h3>
+                Bilgiler
+            </h3>
+            <div class="box-content">
+
+                <ul>
+                   <li>Sunucu : <strong> {{server}}</strong></li> 
+                   <li>Sürüm : <strong> {{version}}</strong></li> 
+                   <li>Yayınlanma tarihi : <strong> {{buildtime}}</strong></li> 
+                </ul>
+                <br>
+                <ul>
+                   <li>Uygulama : <strong> {{app.module}}</strong></li> 
+                   <li>Sürüm : <strong> {{app.moduleVer}}</strong></li> 
+                   <li>Sunucu : <strong> {{app.moduleServer}}</strong></li> 
+                </ul>
+      
+            </div>
+        </div>
+    </div>
+
+</div> 

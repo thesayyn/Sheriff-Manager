@@ -1,0 +1,82 @@
+<div ng-controller="Services">
+
+    
+    <div class="box-">
+        <h1>
+            Servisler
+            <a href="#">Ekle</a>
+        </h1>
+    </div>
+
+    <div ng-show="info != null" class="message info box-">
+        <strong class="ng-binding"> Uyarı : </strong> {{info}}
+    </div>
+    
+    <div class="clear" style="height: 10px;"></div>
+
+    <div class="table">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Açıklama</th>
+                    <th class="hide">Tür</th>
+                    <th class="hide">Mod</th>
+                    <th class="hide">Uç Nokta</th>
+                    <th>Durum</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr ng-repeat="service in services | limitTo:displaylimit:currentIndex">
+                    <td>
+                        <a>{{service.ID}}</a>
+                    </td>
+                    <td>
+                        <a class="title">
+                            {{service.Description}}
+                        </a>
+                        <div class="magic-links">
+                            <a ng-click="viewService(service)" >Görüntüle</a> | 
+                            <a ng-show="service.Status" ng-click="stopService(service)" class="trash">Durdur</a>
+                            <a ng-show="!service.Status" ng-click="startService(service)" >Başlat</a> 
+                        </div>
+                    </td>
+                
+                    <td>
+                        <a>{{service.Class}}</a>
+                    </td>
+                    <td>
+                        <a ng-show="service.Bind.length > 1">Proxy</a>
+                        <a ng-show="service.Bind.length < 2"><i class="fa fa-server" aria-hidden="true"></i> Single</a>
+                    </td>
+                    <td>
+                        <a ng-repeat="bin in service.Bind"><b><i class="fa fa-circle-thin" aria-hidden="true"></i> {{bin}}</b><br></a>
+                    </td>
+                    <td>
+                        <a ng-show="service.Status"><b>Çalışıyor</b></a>
+                        <a ng-show="!service.Status">Durduruldu</a>
+                    </td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="pagination" ng-show="services.length > displaylimit">
+        <ul>
+            <li>
+                <a ng-click="previousPage()">
+                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li>
+                <a ng-click="nextPage()">
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+</div>

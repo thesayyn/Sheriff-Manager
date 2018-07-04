@@ -1,0 +1,79 @@
+<div ng-controller="PluginSettings">
+
+
+
+    <div class="box- ">
+        <h1>
+            {{plugin.Name}} 
+        </h1>
+    </div>
+
+    <div class="clear" style="height: 10px;"></div>
+
+    <div class="box-">
+        <div class="form label">
+            <ul>
+                <li ng-repeat="setting in settings">
+                    <label for="{{setting.Key}}">{{setting.Description}}</label>
+                    <div class="form-content">
+                        
+                        
+                       
+                        <p ng-if="!setting.IsArray">
+                            <input ng-if="setting.Type == 'System.String'" type="text" id="{{setting.Key}}" ng-model="setting.Value"
+                                   ng-change="settingChanged(setting)">
+                            
+                        <label ng-if="setting.Type == 'System.Boolean'" class="switch not">
+                              <input  type="checkbox" id="{{setting.Key}}" ng-model="setting.Value" ng-true-value="true" ng-false-value="false" ng-change="settingChanged(setting)">
+                              <span class="slider round"></span>
+                        </label>
+                  
+                            
+                            <input ng-if="setting.Type == 'System.Int32'" type="number" min="0" id="{{setting.Key}}" ng-model="setting.Value" ng-true-value="true" ng-false-value="false" ng-change="settingChanged(setting)">
+                        </p>
+                        
+                        <button class="remove" ng-show="setting.IsArray" ng-click="addValue(setting)"><i class="fa fa-plus" aria-hidden="true"></i></button>
+         
+                        <p ng-if="setting.IsArray" ng-repeat="value in setting.Value track by $index">
+               
+                            <span ng-if="value.isnew">
+                        
+                                <input 
+                                   ng-if="setting.SingleType == 'System.String'" 
+                                   type="text" value="{{value.Value.value}}" 
+                                   ng-model="setting.Value[$index].value">
+                        
+
+                                <button ng-show="value.isnew" class="remove" ng-click="applyValue($index,setting)">
+                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                </button>
+
+                            </span>
+                            
+                            <span ng-if="!value.isnew">
+                        
+                                <input 
+                                   ng-if="setting.SingleType == 'System.String'" 
+                                   type="text" value="{{value}}" disabled>
+                        
+
+                                     
+                                <button ng-show="!value.isnew" class="remove" ng-click="removeValue($index,setting)">
+                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                </button>
+
+                            </span>
+                      
+                        
+                        </p>
+                        
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+
+
+</div>
